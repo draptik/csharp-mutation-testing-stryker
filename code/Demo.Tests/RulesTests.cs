@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -45,6 +47,21 @@ namespace Demo.Tests
         public void Logical_works(bool a, bool b, bool expected) =>
             sut.Logical(a, b).Should().Be(expected);
 
-        
+        [Theory]
+        [MemberData(nameof(GetFirstData), 1)]
+        // [MemberData(nameof(GetLinq1Data), 2)]
+        public void GetFirst_works(IEnumerable<int> collection, int expected) =>
+            sut.GetFirst(collection).Should().Be(expected);
+
+        public static IEnumerable<object[]> GetFirstData(int numberOfTests)
+        {
+            var allData = new List<object[]>
+            {
+                new object[] {new List<int> {1}, 1},
+                new object[] {new List<int> {1, 2}, 1},
+            };
+            
+            return allData.Take(numberOfTests);
+        }
     }
 }

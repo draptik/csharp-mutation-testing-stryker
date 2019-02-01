@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Demo
 {
@@ -47,5 +49,9 @@ namespace Demo
             if (b1 || b2) return true;
             return false;
         }
+
+        public int GetFirst(IEnumerable<int> numbers) => numbers.First();
+
+        
     }
 }
