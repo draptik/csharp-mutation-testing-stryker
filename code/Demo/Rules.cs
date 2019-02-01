@@ -27,7 +27,7 @@ namespace Demo
             if (a - b == 10) return true;
             if (a * b == 10) return true;
             if (a / b == 10) return true;
-            if (a % b == 10) return true;
+            if (a % b == 1) return true;
             return false;
         }
     

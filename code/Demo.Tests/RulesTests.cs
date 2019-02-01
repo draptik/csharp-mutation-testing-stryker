@@ -27,7 +27,7 @@ namespace Demo.Tests
         [InlineData(15, 5, true)]   // subtraction
         [InlineData(2, 5, true)]    // multiplication
         [InlineData(20, 2, true)]   // division
-        [InlineData(100, 10, true)] // modulo
+        [InlineData(5, 4, true)]    // modulo
         [InlineData(1, 1, false)]   // other combinations
         public void AnotherValidation_works(int a, int b, bool expected) =>
             sut.AnotherValidation(a, b).Should().Be(expected);
