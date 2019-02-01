@@ -6,6 +6,12 @@ namespace Demo.Tests
 {
     public class RulesTests
     {
+        private readonly Rules sut;
+        public RulesTests()
+        {
+            sut = new Rules();
+        }
+
         // Include each `InlineData` line one by one, run `dotnet stryker` and see how it changes the outcome.
         [Theory]
         [InlineData("a", true)]             // -> 3 survive
@@ -14,7 +20,7 @@ namespace Demo.Tests
         [InlineData("123", true)]           // -> 1 survives
         [InlineData("1234", false)]         // -> 0 survive
         public void ValidationRule_works(string input, bool expected) => 
-            new Rules().Validate(input).Should().Be(expected);
+            sut.Validate(input).Should().Be(expected);
 
         [Theory]
         [InlineData(5, 5, true)]    // addition
@@ -24,6 +30,11 @@ namespace Demo.Tests
         [InlineData(100, 10, true)] // modulo
         [InlineData(1, 1, false)]   // other combinations
         public void AnotherValidation_works(int a, int b, bool expected) =>
-            new Rules().AnotherValidation(a, b).Should().Be(expected);
+            sut.AnotherValidation(a, b).Should().Be(expected);
+
+        [Theory]
+        [InlineData(3, 3)]
+        public void Looping_works(int input, int expected) =>
+            sut.Looping(input).Should().Be(expected);
     }
 }

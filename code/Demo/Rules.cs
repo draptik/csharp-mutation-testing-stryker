@@ -30,5 +30,15 @@ namespace Demo
             if (a % b == 10) return true;
             return false;
         }
+    
+        public int Looping(int a)
+        {
+            var result = 0;
+            for (int i = 0; i < a; i++)
+            {
+                result++;
+            }
+            return result;
+        }
     }
 }
