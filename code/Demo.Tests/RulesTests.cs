@@ -36,5 +36,15 @@ namespace Demo.Tests
         [InlineData(3, 3)]
         public void Looping_works(int input, int expected) =>
             sut.Looping(input).Should().Be(expected);
+        
+        [Theory]
+        [InlineData(true, true, true)]
+        [InlineData(true, false, true)]
+        [InlineData(false, true, true)]
+        [InlineData(false, false, false)]
+        public void Logical_works(bool a, bool b, bool expected) =>
+            sut.Logical(a, b).Should().Be(expected);
+
+        
     }
 }
