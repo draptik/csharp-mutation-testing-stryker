@@ -9,10 +9,8 @@ namespace Demo.Tests
     public class RulesTests
     {
         private readonly Rules sut;
-        public RulesTests()
-        {
-            sut = new Rules();
-        }
+        
+        public RulesTests() => sut = new Rules();
 
         // Include each `InlineData` line one by one, run `dotnet stryker` and see how it changes the outcome.
         [Theory]
