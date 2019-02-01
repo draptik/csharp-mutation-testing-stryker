@@ -20,5 +20,15 @@ namespace Demo
                 return true;
             }
         }
+
+        public bool AnotherValidation(int a, int b)
+        {
+            if (a + b == 10) return true;
+            if (a - b == 10) return true;
+            if (a * b == 10) return true;
+            if (a / b == 10) return true;
+            if (a % b == 10) return true;
+            return false;
+        }
     }
 }
